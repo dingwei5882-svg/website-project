@@ -22,7 +22,7 @@ export default function Page() {
 
   useEffect(() => {
     const syncViewport = () => {
-      setIsMobileRender(window.innerWidth <= 900 && window.innerHeight <= 1000);
+      setIsMobileRender(window.innerWidth <= 760);
     };
 
     syncViewport();

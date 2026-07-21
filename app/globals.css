@@ -1792,3 +1792,283 @@ button {
   object-fit: fill !important;
   object-position: left top !important;
 }
+
+/* Responsive repair layer: keep approved visuals, but prevent mobile capture rules from affecting real desktop viewports. */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-width: 0;
+}
+
+.language-entry,
+.homepage,
+.find-games-page,
+.beginner-guide-page,
+.platform-ranking-page,
+.latest-news-page {
+  max-width: none;
+}
+
+.language-entry__interaction,
+.language-hotspots,
+.language-continue-hotspot,
+.homepage__hotspots,
+.find-games-page__hotspots,
+.beginner-guide-page__hotspots,
+.platform-ranking-page__hotspots,
+.latest-news-page__hotspots {
+  pointer-events: auto;
+}
+
+@media (min-width: 761px) {
+  .language-entry,
+  .homepage {
+    width: 100vw !important;
+    min-height: 100svh !important;
+    overflow: hidden !important;
+  }
+
+  .language-entry__approved-art,
+  .homepage__approved-art {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    min-height: 100svh !important;
+  }
+
+  .language-entry__approved-art img,
+  .homepage__approved-art img {
+    width: 100vw !important;
+    height: 100svh !important;
+    min-height: 100svh !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  .homepage__hotspots {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    min-height: 100svh !important;
+  }
+
+  .language-entry__logo-cover {
+    left: 50% !important;
+    top: 34px !important;
+    width: 540px !important;
+    height: 116px !important;
+    transform: translateX(-50%) !important;
+    border-radius: 999px !important;
+  }
+
+  .language-entry__brand-logo {
+    left: 50% !important;
+    top: 48px !important;
+    width: min(330px, 84vw) !important;
+    max-width: 330px !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .language-hotspots {
+    left: 32.55vw !important;
+    top: 29.49svh !important;
+    width: 36.6vw !important;
+    height: 43.75svh !important;
+    gap: 0.78svh !important;
+  }
+
+  .language-continue-hotspot {
+    left: 32.55vw !important;
+    top: 75.88svh !important;
+    width: 36.6vw !important;
+    height: 6.64svh !important;
+  }
+
+  .language-entry__bottom-cleaner {
+    top: 82.8svh !important;
+  }
+
+  .find-games-page,
+  .beginner-guide-page {
+    width: 100vw !important;
+    min-height: max(100svh, calc(100vw * 1024 / 1536)) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  .platform-ranking-page,
+  .latest-news-page {
+    width: 100vw !important;
+    min-height: max(100svh, calc(100vw * 1024 / 1536)) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  .find-games-page__approved-art,
+  .find-games-page__hotspots,
+  .beginner-guide-page__approved-art,
+  .beginner-guide-page__hotspots,
+  .platform-ranking-page__approved-art,
+  .platform-ranking-page__hotspots,
+  .latest-news-page__approved-art,
+  .latest-news-page__hotspots {
+    position: absolute !important;
+    inset: 0 auto auto 0 !important;
+    width: 100vw !important;
+    min-height: inherit !important;
+  }
+
+  .find-games-page__approved-art img,
+  .beginner-guide-page__approved-art img,
+  .platform-ranking-page__approved-art img,
+  .latest-news-page__approved-art img {
+    width: 100vw !important;
+    height: auto !important;
+    min-height: 100svh !important;
+    object-fit: fill !important;
+    object-position: top center !important;
+  }
+
+  .find-games-hotspot--logo,
+  .beginner-guide-hotspot--logo {
+    left: 2.7vw !important;
+    top: 2.8vw !important;
+    width: 16.0vw !important;
+    height: 3.6vw !important;
+  }
+
+  .find-games-hotspot--category-1,
+  .find-games-hotspot--category-2,
+  .find-games-hotspot--category-3,
+  .find-games-hotspot--category-4,
+  .find-games-hotspot--category-5,
+  .find-games-hotspot--category-6,
+  .find-games-hotspot--category-7,
+  .find-games-hotspot--category-8 {
+    top: 16.0vw !important;
+    width: 11.8vw !important;
+    height: 14.7vw !important;
+  }
+
+  .find-games-hotspot--category-1 { left: 2.9vw !important; }
+  .find-games-hotspot--category-2 { left: 15.5vw !important; }
+  .find-games-hotspot--category-3 { left: 27.8vw !important; }
+  .find-games-hotspot--category-4 { left: 39.2vw !important; }
+  .find-games-hotspot--category-5 { left: 50.8vw !important; }
+  .find-games-hotspot--category-6 { left: 62.4vw !important; }
+  .find-games-hotspot--category-7 { left: 74.4vw !important; }
+  .find-games-hotspot--category-8 { left: 85.6vw !important; }
+
+  .find-games-hotspot--recommended-1,
+  .find-games-hotspot--recommended-2,
+  .find-games-hotspot--recommended-3,
+  .find-games-hotspot--recommended-4,
+  .find-games-hotspot--recommended-5,
+  .find-games-hotspot--recommended-6 {
+    top: 44.1vw !important;
+    width: 15.5vw !important;
+    height: 13.9vw !important;
+    display: block !important;
+  }
+
+  .find-games-hotspot--recommended-1 { left: 3.1vw !important; }
+  .find-games-hotspot--recommended-2 { left: 19.3vw !important; }
+  .find-games-hotspot--recommended-3 { left: 34.9vw !important; }
+  .find-games-hotspot--recommended-4 { left: 50.3vw !important; }
+  .find-games-hotspot--recommended-5 { left: 65.6vw !important; }
+  .find-games-hotspot--recommended-6 { left: 80.9vw !important; }
+
+  .find-games-hotspot--ranking-1,
+  .find-games-hotspot--ranking-2,
+  .find-games-hotspot--ranking-3 {
+    top: 71.4vw !important;
+    width: 27.6vw !important;
+    height: 13.2vw !important;
+  }
+
+  .find-games-hotspot--ranking-1 { left: 6.6vw !important; }
+  .find-games-hotspot--ranking-2 { left: 35.4vw !important; }
+  .find-games-hotspot--ranking-3 { left: 65.7vw !important; }
+
+  .beginner-guide-hotspot--step-1,
+  .beginner-guide-hotspot--step-2,
+  .beginner-guide-hotspot--step-3,
+  .beginner-guide-hotspot--step-4 {
+    top: 21.9vw !important;
+    width: 22.5vw !important;
+    height: 13.4vw !important;
+  }
+
+  .beginner-guide-hotspot--step-1 { left: 4.4vw !important; }
+  .beginner-guide-hotspot--step-2 { left: 28.0vw !important; }
+  .beginner-guide-hotspot--step-3 { left: 50.7vw !important; }
+  .beginner-guide-hotspot--step-4 { left: 73.3vw !important; }
+
+  .beginner-guide-hotspot--basic-1,
+  .beginner-guide-hotspot--basic-2,
+  .beginner-guide-hotspot--basic-3,
+  .beginner-guide-hotspot--basic-4 {
+    top: 47.4vw !important;
+    width: 22.1vw !important;
+    height: 8.8vw !important;
+  }
+
+  .beginner-guide-hotspot--basic-1 { left: 4.6vw !important; }
+  .beginner-guide-hotspot--basic-2 { left: 28.0vw !important; }
+  .beginner-guide-hotspot--basic-3 { left: 50.7vw !important; }
+  .beginner-guide-hotspot--basic-4 { left: 73.4vw !important; }
+
+  .beginner-guide-hotspot--recommendation-1,
+  .beginner-guide-hotspot--recommendation-2,
+  .beginner-guide-hotspot--recommendation-3,
+  .beginner-guide-hotspot--recommendation-4 {
+    top: 66.4vw !important;
+    width: 11.1vw !important;
+    height: 15.4vw !important;
+  }
+
+  .beginner-guide-hotspot--recommendation-1 { left: 4.3vw !important; }
+  .beginner-guide-hotspot--recommendation-2 { left: 16.2vw !important; }
+  .beginner-guide-hotspot--recommendation-3 { left: 28.5vw !important; }
+  .beginner-guide-hotspot--recommendation-4 { left: 42.7vw !important; }
+}
+
+@media (max-width: 760px) {
+  .language-entry,
+  .homepage,
+  .find-games-page,
+  .beginner-guide-page,
+  .platform-ranking-page,
+  .latest-news-page {
+    width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .language-entry__approved-art img,
+  .homepage__approved-art img,
+  .find-games-page__approved-art img,
+  .beginner-guide-page__approved-art img,
+  .platform-ranking-page__approved-art img,
+  .latest-news-page__approved-art img {
+    max-width: none !important;
+  }
+
+  .homepage__approved-art,
+  .homepage__hotspots {
+    width: 100vw !important;
+  }
+
+  .homepage__approved-art img {
+    width: 100vw !important;
+  }
+
+  .language-entry.is-mobile-render .language-entry__logo-cover,
+  .language-entry.is-mobile-render .language-entry__brand-logo {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
