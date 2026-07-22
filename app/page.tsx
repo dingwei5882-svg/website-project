@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type PointerEvent } from "react";
 
 type Language = {
   code: string;
@@ -35,8 +35,35 @@ export default function Page() {
     window.location.assign(`/home?lang=${selectedLanguage.code}`);
   };
 
+  const handleDesktopLanguagePointer = (event: PointerEvent<HTMLElement>) => {
+    if (window.innerWidth <= 760) {
+      return;
+    }
+
+    const groupLeft = window.innerWidth * 0.3255;
+    const groupTop = window.innerHeight * 0.2949;
+    const groupWidth = window.innerWidth * 0.366;
+    const groupHeight = window.innerHeight * 0.4375;
+    const gap = window.innerHeight * 0.0078;
+    const itemHeight = (groupHeight - gap * (languages.length - 1)) / languages.length;
+    const x = event.clientX;
+    const y = event.clientY;
+
+    if (x < groupLeft || x > groupLeft + groupWidth || y < groupTop || y > groupTop + groupHeight) {
+      return;
+    }
+
+    const offsetY = y - groupTop;
+    const index = Math.floor(offsetY / (itemHeight + gap));
+    const itemTop = index * (itemHeight + gap);
+
+    if (index >= 0 && index < languages.length && offsetY >= itemTop && offsetY <= itemTop + itemHeight) {
+      setSelectedLanguage(languages[index]);
+    }
+  };
+
   return (
-    <main className={`language-entry${isMobileRender ? " is-mobile-render" : ""}`} aria-labelledby="language-title">
+    <main className={`language-entry${isMobileRender ? " is-mobile-render" : ""}`} aria-labelledby="language-title" onPointerDownCapture={handleDesktopLanguagePointer}>
       <picture className="language-entry__approved-art" aria-hidden="true">
         <source media="(max-width: 760px)" srcSet="/approved-assets/language-entry-mobile.png" />
         <img src="/approved-assets/language-entry-desktop.png" alt="" draggable={false} />
