@@ -1845,7 +1845,7 @@ body {
     width: 100vw !important;
     height: 100svh !important;
     min-height: 100svh !important;
-    object-fit: cover !important;
+    object-fit: fill !important;
     object-position: center center !important;
   }
 
@@ -1890,6 +1890,22 @@ body {
 
   .language-entry__bottom-cleaner {
     top: 82.8svh !important;
+  }
+
+  .language-entry .language-continue-hotspot {
+    z-index: 5 !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 999px !important;
+    background: linear-gradient(90deg, #31d777, #1fb969) !important;
+    color: #ffffff !important;
+    font-size: clamp(12px, 0.92vw, 16px) !important;
+    font-weight: 700 !important;
+    box-shadow: 0 0 18px rgba(31, 185, 105, 0.35) !important;
+  }
+
+  .language-entry .language-continue-hotspot::before {
+    content: "Continue to Homepage";
   }
 
   .find-games-page,
@@ -2070,5 +2086,52 @@ body {
   .language-entry.is-mobile-render .language-entry__brand-logo {
     left: 50% !important;
     transform: translateX(-50%) !important;
+  }
+
+  .language-entry .language-continue-hotspot {
+    z-index: 5 !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 999px !important;
+    background: linear-gradient(90deg, #31d777, #1fb969) !important;
+    color: #ffffff !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 0 18px rgba(31, 185, 105, 0.35) !important;
+  }
+
+  .language-entry .language-continue-hotspot::before {
+    content: "Continue to Homepage";
+  }
+}
+
+.home-language-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  max-width: 86%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: clamp(18px, 2.1vw, 38px);
+  font-weight: 800;
+  line-height: 1.12;
+  text-align: center;
+  text-shadow: 0 0 22px rgba(0, 0, 0, 0.95), 0 0 16px rgba(38, 255, 156, 0.42);
+  pointer-events: none;
+}
+
+.home-hotspot--business .home-language-label {
+  font-size: clamp(12px, 1.0vw, 18px);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .home-language-label {
+    font-size: clamp(17px, 6.0vw, 26px);
+  }
+
+  .home-hotspot--business .home-language-label {
+    font-size: clamp(12px, 3.2vw, 16px);
   }
 }
