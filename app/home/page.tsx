@@ -68,7 +68,7 @@ export default function HomePage() {
       <nav className="homepage__hotspots" aria-label="Homepage core navigation">
         {entries.map((entry) => (
           <a className={`home-hotspot ${entry.className}`} href={entry.href} key={entry.href}>
-            <span className="home-language-label">{entry.label}</span>
+            <span className="sr-only">{entry.label}</span>
           </a>
         ))}
       </nav>
